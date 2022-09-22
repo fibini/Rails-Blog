@@ -1,7 +1,8 @@
-<p>Post# <%= @specific_post.id %> by <%= @user.name %></p>
-<p>Comments: <%= @specific_post.comments_counter%>, Likes: <% @specific_post.likes_counter %></p>
-<p><%= @specific_post.text %><p>
+<div class= "post-preview">
+    <p>Post# <%= @specific_post.id %> by <%= @user.name %></p>
+    <p>Comments: <%= @specific_post.comments_counter%>, Likes: <% @specific_post.likes_counter %></p>
+    <p><%= @specific_post.text %></p>
+</div>
 <%@specific_post.comments.each do |comment|%>
-<%= comment.author.name %>, <%= comment.text %>
-<br>
+<p><%= comment.author.name %>, <%= comment.text %></p>
 <%end%>
