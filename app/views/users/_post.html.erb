@@ -1,0 +1,8 @@
+<%@specific_user.recent_post.each do |post|%>
+Post# <%=post.id%>
+<%= post.text%>
+Comments: <%= post.comments_counter%>
+Likes: <%= post.likes_counter%>
+<br>
+<%end %>
+<button>See all posts</button>
