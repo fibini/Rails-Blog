@@ -1,1 +1,6 @@
-<p><%= @users %></p>
+<%@users.each do |user|%>
+<img src = "<%=user.photo%>">
+<h2><%= user.name%></h2>
+<p>number of posts: <%= user.posts_counter%></p>
+<br>
+<%end%>
