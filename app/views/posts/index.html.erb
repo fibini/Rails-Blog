@@ -1,1 +1,14 @@
-<p><%= @posts %></p>
+<%= render "/users/user" %>
+<%@posts.each do |post| %>
+<div class= "post-preview">
+    <p><%=link_to "Post", user_post_path(@users.id, post.id)%>#<%=post.id%></p>
+    <p><%= post.text %></p>
+    Comments: <%= post.comments_counter%>
+    Likes: <%= post.likes_counter %>
+</div>
+<div class= "comments-block">
+    <%= render partial:"comment", :locals => {:specific_post => post} %>
+</div>
+<br>
+<%end%>
+<button>Pagination</button>

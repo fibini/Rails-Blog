@@ -1,0 +1,41 @@
+.user-container {
+  display: flex;
+  gap: 3rem;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+.post-block {
+  margin-bottom: 1rem;
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+}
+
+.button-block {
+  display: flex;
+  justify-content: center;
+}
+
+.user-block {
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+}
+
+.post-preview {
+  border: 2px;
+  border-color: black;
+  border-style: solid;
+}
+
+.comments-block {
+  border-left: 2px;
+  border-right: 2px;
+  border-bottom: 2px;
+  border-color: black;
+  border-style: solid;
+}

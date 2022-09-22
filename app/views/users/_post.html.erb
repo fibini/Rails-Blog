@@ -1,0 +1,12 @@
+<%@specific_user.recent_post.each do |post|%>
+<div class= "post-block">
+    Post# <%=post.id%>
+    <p><%= post.text%></p>
+    Comments: <%= post.comments_counter%>
+    Likes: <%= post.likes_counter%>
+</div>
+<br>
+<%end %>
+<div class= "button-block">
+    <button><%= link_to "See all posts", user_posts_path(@specific_user.id) %></button>
+</div>
