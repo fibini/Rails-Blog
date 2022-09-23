@@ -1,9 +1,12 @@
 <div class= "post-preview">
     <p>Post# <%= @specific_post.id %> by <%= @user.name %></p>
-    <p>Comments: <%= @specific_post.comments_counter%>, Likes: <% @specific_post.likes_counter %></p>
+    <p>Comments: <%= @specific_post.comments_counter%>, Likes: <%= @specific_post.likes_counter %></p>
+    <%= render "likes/new" %>
     <p><%= @specific_post.text %></p>
 </div>
-<p><%= link_to 'Add New Comment', new_user_post_comment_path %></p>
+<div class= newcomment-block>
+    <%= render 'comments/new'%>
+</div>
 <%@specific_post.comments.each do |comment|%>
 <p><%= comment.author.name %>, <%= comment.text %></p>
 <%end%>
