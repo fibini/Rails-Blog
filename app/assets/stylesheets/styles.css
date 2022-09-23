@@ -28,8 +28,10 @@ img {
 
 .post-preview {
   border: 2px;
-  border-color: black;
+  border-color: blue;
   border-style: solid;
+  background-color: black;
+  color: aliceblue;
 }
 
 .comments-block {
@@ -38,4 +40,26 @@ img {
   border-bottom: 2px;
   border-color: black;
   border-style: solid;
+}
+
+.newpost-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: black;
+  color: aliceblue;
+}
+
+.newcomment-block {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: aliceblue;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-form {
+  display: flex;
 }

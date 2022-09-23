@@ -1,0 +1,9 @@
+<h2>New Commment</h2>
+
+<%= form_with model: @comment, url: user_post_comments_path( @user, @specific_post ), method: :post, local: true, scope: :comment do |f| %>
+  <div class= "comment-form">
+    <%= f.label :text %>
+    <%= f.text_area :text %>
+    <%= f.submit "Add New Comment" %>
+  </div>
+<% end %>
