@@ -1,5 +1,6 @@
 <div class= "post-preview">
     <p>Post# <%= @specific_post.id %> by <%= @user.name %></p>
+    <h2><%= @specific_post.title %></h2>
     <p>Comments: <%= @specific_post.comments_counter%>, Likes: <%= @specific_post.likes_counter %></p>
     <%= render "likes/new" %>
     <p><%= @specific_post.text %></p>
