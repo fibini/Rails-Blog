@@ -4,11 +4,11 @@ RSpec.describe 'users/index.html.erb', type: :feature do
   describe 'index page' do
     before do
       @first_user = User.create(name: 'Fabien',
-                                photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80', bio: 'Teacher from Mexico', posts_counter: 5)
+                                photo: 'https://i.pravatar.cc/150?img=2', bio: 'Teacher from Mexico', posts_counter: 5)
       @second_user = User.create(name: 'Richard',
-                                 photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80', bio: 'Teacher from Barbados', posts_counter: 3)
+                                 photo: 'https://i.pravatar.cc/150?img=2', bio: 'Teacher from Bar', posts_counter: 3)
       @third_user = User.create(name: 'Sheena',
-                                photo: 'https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80', bio: 'Teacher from Canada', posts_counter: 1)
+                                photo: 'https://i.pravatar.cc/150?img=2', bio: 'Teacher from Canada', posts_counter: 1)
     end
     it 'show the user name and show the user photo' do
       visit users_path
