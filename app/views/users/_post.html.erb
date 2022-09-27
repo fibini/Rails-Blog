@@ -1,6 +1,7 @@
 <%@specific_user.recent_post.each do |post|%>
 <div class= "post-block">
     Post# <%=post.id%>
+    <h2><%= link_to post.title, user_post_path(@specific_user.id, post.id)%></h2>
     <p><%= post.text%></p>
     Comments: <%= post.comments_counter%>
     Likes: <%= post.likes_counter%>
