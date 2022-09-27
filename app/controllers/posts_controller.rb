@@ -38,6 +38,6 @@ class PostsController < ApplicationController
   def show
     @specific_post = Post.find(params[:id])
     @user = current_user
-    @comments = @specific_post.comments
+    @comments = Comment.includes(:author).where(post: @specific_post)
   end
 end

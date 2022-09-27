@@ -8,6 +8,6 @@
 <div class= newcomment-block>
     <%= render 'comments/new'%>
 </div>
-<%@specific_post.comments.each do |comment|%>
+<%@comments.each do |comment|%>
 <p><%= comment.author.name %>, <%= comment.text %></p>
 <%end%>
