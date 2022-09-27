@@ -12,13 +12,28 @@ RSpec.describe 'users/show.html.erb', type: :system do
       @third_post = Post.create(title: 'My third post', text: 'It is raining today', comments_counter: 0,
                                 likes_counter: 0, author: @first_user)
     end
-    it 'shows the user photo, name, post count and bio' do
+    it 'shows the user photo' do
+      visit user_path(@first_user)
+      sleep(3)
+      expect(page).to have_xpath("//img[contains(@src,'#{@first_user.photo}')]")
+    end
+
+    it 'shows the user name' do
       visit user_path(@first_user)
       sleep(3)
       expect(page).to have_content(@first_user.name)
+    end
+
+    it 'shows the user post count' do
+      visit user_path(@first_user)
+      sleep(3)
       expect(page).to have_content('number of posts: 3')
+    end
+
+    it 'shows the user bio' do
+      visit user_path(@first_user)
+      sleep(3)
       expect(page).to have_content(@first_user.bio)
-      expect(page).to have_xpath("//img[contains(@src,'#{@first_user.photo}')]")
     end
 
     it 'shows the user recent posts' do
@@ -27,13 +42,18 @@ RSpec.describe 'users/show.html.erb', type: :system do
       expect(@first_user.recent_post.length).to eql 3
     end
 
-    it 'shows the see all post button and redirects to the post index page' do
+    it 'shows the see all post button' do
       visit user_path(@first_user)
       sleep(3)
       expect(page).to have_link('See all posts')
+    end
+
+    it 'redirects to the post index page' do
+      visit user_path(@first_user)
+      sleep(3)
       click_link 'See all posts'
       expect(page).to have_current_path(user_posts_path(@first_user))
-      sleep(4)
+      sleep(3)
     end
 
     it 'redirects to the post show page' do

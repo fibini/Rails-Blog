@@ -10,12 +10,17 @@ RSpec.describe 'users/index.html.erb', type: :feature do
       @third_user = User.create(name: 'Sheena',
                                 photo: 'https://i.pravatar.cc/150?img=2', bio: 'Teacher from Canada', posts_counter: 1)
     end
-    it 'show the user name and show the user photo' do
+    it 'show the user name' do
       visit users_path
       sleep(6)
       expect(page).to have_content(@first_user.name)
       expect(page).to have_content(@second_user.name)
       expect(page).to have_content(@third_user.name)
+    end
+
+    it 'show the user photo' do
+      visit users_path
+      sleep(4)
       expect(page).to have_xpath("//img[contains(@src,'#{@first_user.photo}')]")
       expect(page).to have_xpath("//img[contains(@src,'#{@second_user.photo}')]")
       expect(page).to have_xpath("//img[contains(@src,'#{@third_user.photo}')]")

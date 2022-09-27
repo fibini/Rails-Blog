@@ -11,28 +11,63 @@ RSpec.describe 'users/show.html.erb', type: :system do
       Like.create(id: 1, author: @first_user, post: @first_post)
     end
 
-    it 'shows the user photo, name and post count' do
+    it 'shows the user photo' do
       visit user_posts_path(@first_user, @first_post)
       sleep(3)
-      expect(page).to have_content(@first_user.name)
-      expect(page).to have_content('number of posts: 1')
-      expect(page).to have_content(@first_post.title)
-      expect(page).to have_content(@first_post.text)
       expect(page).to have_xpath("//img[contains(@src,'#{@first_user.photo}')]")
     end
 
-    it 'shows the post comments, likes count and comments count' do
+    it 'shows the user name' do
+      visit user_posts_path(@first_user, @first_post)
+      sleep(3)
+      expect(page).to have_content(@first_user.name)
+    end
+
+    it 'shows the user post count' do
+      visit user_posts_path(@first_user, @first_post)
+      sleep(3)
+      expect(page).to have_content('number of posts: 1')
+    end
+
+    it 'shows the post title' do
+      visit user_posts_path(@first_user, @first_post)
+      sleep(3)
+      expect(page).to have_content(@first_post.title)
+    end
+
+    it 'shows the post text' do
+      visit user_posts_path(@first_user, @first_post)
+      sleep(3)
+      expect(page).to have_content(@first_post.text)
+    end
+
+    it 'shows the post comments' do
       visit user_posts_path(@first_user, @first_post)
       sleep(3)
       expect(page).to have_content(@first_comment.text)
-      expect(page).to have_content('Comments: 1')
+    end
+
+    it 'shows the post likes count' do
+      visit user_posts_path(@first_user, @first_post)
+      sleep(3)
       expect(page).to have_content('Likes: 1')
     end
 
-    it 'shows the post comments, likes count and comments count' do
+    it 'shows the post comments count' do
+      visit user_posts_path(@first_user, @first_post)
+      sleep(3)
+      expect(page).to have_content('Comments: 1')
+    end
+
+    it 'shows the text on page' do
       visit user_posts_path(@first_user, @first_post)
       sleep(3)
       expect(page).to have_content('Pagination')
+    end
+
+    it 'redirects to user post' do
+      visit user_posts_path(@first_user, @first_post)
+      sleep(3)
       click_link @first_post.title
       expect(page).to have_current_path(user_post_path(@first_user, @first_post))
       sleep(3)

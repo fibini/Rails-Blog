@@ -15,21 +15,46 @@ RSpec.describe 'users/show.html.erb', type: :system do
                                        post: @first_post)
     end
 
-    it 'shows post title, post author, comments_count, likes_count' do
+    it 'shows post title' do
       visit user_post_path(@first_user, @first_post)
       sleep(3)
       expect(page).to have_content(@first_post.title)
+    end
+
+    it 'shows post author' do
+      visit user_post_path(@first_user, @first_post)
+      sleep(3)
       expect(page).to have_content(@first_post.author.name)
+    end
+
+    it 'shows post comments_count' do
+      visit user_post_path(@first_user, @first_post)
+      sleep(3)
       expect(page).to have_content("Comments: #{@first_post.comments_counter}")
+    end
+
+    it 'shows post likes_count' do
+      visit user_post_path(@first_user, @first_post)
+      sleep(3)
       expect(page).to have_content("Likes: #{@first_post.likes_counter}")
     end
 
-    it 'shows post body, username of each commentor and comments' do
+    it 'shows post body' do
       visit user_post_path(@first_user, @first_post)
       sleep(3)
       expect(page).to have_content(@first_post.text)
+    end
+
+    it 'shows username of each commentor' do
+      visit user_post_path(@first_user, @first_post)
+      sleep(3)
       expect(page).to have_content(@first_comment.author.name)
       expect(page).to have_content(@second_comment.author.name)
+    end
+
+    it 'shows comments of each commentor' do
+      visit user_post_path(@first_user, @first_post)
+      sleep(3)
       expect(page).to have_content(@first_comment.text)
       expect(page).to have_content(@second_comment.text)
     end
