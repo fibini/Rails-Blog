@@ -9,5 +9,14 @@ RSpec.describe 'users/show.html.erb', type: :system do
             @first_comment = Comment.create(id: 1, text: 'This is a great post', author: @first_user, post: @first_post)
             Like.create(id: 1, author: @first_user, post: @first_post)
         end
+
+        it 'shows post title, post author, comments_count, likes_count' do
+            visit user_posts_path(@first_user, @first_post)
+            sleep(3)
+            expect(page).to have_content(@first_post.title)
+            expect(page).to have_content(@first_post.author)
+            expect(page).to have_content("Comments: #{first_post.comments_counter}")
+            expect(page).to have_content("Likes: #{first_post.likes_counter}")
+        end
     end
 end
