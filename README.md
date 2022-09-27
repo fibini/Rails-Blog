@@ -37,6 +37,13 @@ Cloning a repository
 - Twitter: [@Onenewpage1](https://twitter.com/Onenewpage1)
 - LinkedIn: [fabien brathwaite](https://www.linkedin.com/in/fabien-brathwaite/)
 
+👤 **Dino Quispe**
+
+- GitHub: [@dqarias](https://github.com/dqarias)
+- Twitter: [@DinoRonald7](https://twitter.com/DinoRonald7?t=Zanx9DXMEG9C_PNF3woZFg&s=08)
+- LinkedIn: [Dino Quispe](https://www.linkedin.com/in/dino-ronald-quispe-arias/)
+
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
