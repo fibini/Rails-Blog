@@ -10,8 +10,16 @@
 - Rails
 
 ## Getting Started
+Install
+- To install necessary gem files in your machine run bundle install on your terminal.
+- To run your machine locally run rails server on your terminal.
 
-### Prerequisites
+- Set up RSpec in your app and create the Spec folder rails g rspec:install
+
+- Run the migration into your testing environment rails db:migrate RAILS_ENV=test
+
+- To see all tests with description run rspec spec --format documentation
+
 #### Setup
 Cloning a repository
 
