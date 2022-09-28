@@ -14,6 +14,6 @@ class Post < ApplicationRecord
   end
 
   def most_recent_comments
-    Comment.where(post: self).order(created_at: :desc).limit(5)
+    Comment.includes(:author).where(post: self).order(created_at: :desc).limit(5)
   end
 end
