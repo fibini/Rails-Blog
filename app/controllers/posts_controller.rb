@@ -40,4 +40,11 @@ class PostsController < ApplicationController
     @user = current_user
     @comments = Comment.includes(:author).where(post: @specific_post)
   end
+
+  def destroy
+    @specific_post = Post.find(params[:id])
+    @specific_post.destroy
+    flash[:notice] = 'Post removed succesfully!'
+    redirect_to user_posts_path(current_user)
+  end
 end

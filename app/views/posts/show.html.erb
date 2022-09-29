@@ -1,8 +1,11 @@
 <div class= "post-preview">
-    <p>Post# <%= @specific_post.id %> by <%= @user.name %></p>
+    <p>Post# <%= @specific_post.id %> by <%= @specific_post.author.name %></p>
     <h2><%= @specific_post.title %></h2>
     <p>Comments: <%= @specific_post.comments_counter%>, Likes: <%= @specific_post.likes_counter %></p>
     <%= render "likes/new" %>
+    <%if can? :destroy, @specific_post %>
+      <%= button_to "DELETE", user_post_path( user_id: @specific_post.author.id, post_id: @specific_post.id), method: :delete%>
+    <%end%>
     <p><%= @specific_post.text %></p>
 </div>
 <div class= newcomment-block>
@@ -10,4 +13,7 @@
 </div>
 <%@comments.each do |comment|%>
 <p><%= comment.author.name %>, <%= comment.text %></p>
+  <%if can? :destroy, comment %>
+        <%= button_to "DELETE", user_post_comment_path(user_id: @specific_post.author.id , post_id: @specific_post.id, id: comment.id), method: :delete %>
+    <%end%>
 <%end%>
