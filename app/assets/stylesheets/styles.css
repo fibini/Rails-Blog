@@ -63,3 +63,18 @@ img {
 .comment-form {
   display: flex;
 }
+
+input {
+  width: 50%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
