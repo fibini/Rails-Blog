@@ -77,5 +77,6 @@ group :test do
   gem 'webdrivers'
 end
 
+gem 'cancancan'
 gem 'devise'
 gem 'letter_opener', group: :development
