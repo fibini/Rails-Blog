@@ -6,4 +6,12 @@ class Api::V1::CommentsController < ApplicationController
 
     render json: @comments
   end
+  def create
+    @comment = Comment.new(params.require(:comment).permit(:text).merge(post_id: params[:post_id], author_id: params[:user_id]))
+    if @comment.save
+        render json: @comment
+      else
+        render json: { errors: @comment.errors.full_messages }
+    end
+  end
 end
