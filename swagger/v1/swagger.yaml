@@ -1,0 +1,102 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/users/{user_id}/posts":
+    get:
+      summary: Get all posts by user ID
+      tags:
+      - posts
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: All posts found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  text:
+                    type: string
+                required:
+                - id
+                - title
+                - text
+        '404':
+          description: Not found
+        '406':
+          description: Unsupported accept header
+  "/api/v1/users/{user_id}/posts/{post_id}/comments":
+    get:
+      summary: Get all comments by post ID
+      tags:
+      - comments
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: post_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: all comments found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  text:
+                    type: string
+                required:
+                - id
+                - title
+                - text
+        '404':
+          description: comments not found
+        '406':
+          description: unsupported accept header
+    post:
+      summary: Creates a new comment for a given post
+      tags:
+      - comments
+      parameters: []
+      responses:
+        '201':
+          description: comment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+              - text
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

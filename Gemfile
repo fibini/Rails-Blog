@@ -81,3 +81,4 @@ gem 'cancancan'
 gem 'devise'
 gem 'jwt'
 gem 'letter_opener', group: :development
+gem 'rswag'
